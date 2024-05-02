@@ -1,9 +1,15 @@
 # depslib dependency file v1.0
-1713007894 source:c:\bme\prog2\nagyhf2\nagyhf2\main.cpp
+1713545020 source:c:\bme\prog2\nagyhf2\nagyhf2\main.cpp
 	<iostream>
 	<time.h>
 	<conio.h>
 	"c-econio/econio.h"
+	"Erzekelo.h"
+	"Eszkoz.h"
+	"Szirena.h"
+	"Tipus.h"
+	"Logika.h"
+	"Kodolvaso.h"
 	<windows.h>
 
 1557405536 c:\bme\prog2\nagyhf2\nagyhf2\c-econio\econio.h
@@ -25,4 +31,24 @@
 	<ctype.h>
 	<string.h>
 	<time.h>
+
+1713598022 c:\bme\prog2\nagyhf2\nagyhf2\erzekelo.h
+	"Eszkoz.h"
+	"Tipus.h"
+
+1713592468 c:\bme\prog2\nagyhf2\nagyhf2\eszkoz.h
+
+1713592468 c:\bme\prog2\nagyhf2\nagyhf2\szirena.h
+	"Logika.h"
+
+1713592468 c:\bme\prog2\nagyhf2\nagyhf2\logika.h
+	"Eszkoz.h"
+
+1713592468 c:\bme\prog2\nagyhf2\nagyhf2\tipus.h
+
+1713545020 c:\bme\prog2\nagyhf2\nagyhf2\kodolvaso.h
+	<iostream>
+
+1713544177 source:c:\bme\prog2\nagyhf2\nagyhf2\kodolvaso.cpp
+	"Kodolvaso.h"
 

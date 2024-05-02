@@ -32,6 +32,18 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Erzekelo.h" />
+		<Unit filename="Eszkoz.h" />
+		<Unit filename="Kodolvaso.cpp" />
+		<Unit filename="Kodolvaso.h" />
+		<Unit filename="Logika.h" />
+		<Unit filename="Stopper.h" />
+		<Unit filename="Szirena.h" />
+		<Unit filename="Tipus.h" />
+		<Unit filename="c-econio/econio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="c-econio/econio.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
