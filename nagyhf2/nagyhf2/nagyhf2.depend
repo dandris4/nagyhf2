@@ -52,3 +52,57 @@
 1713544177 source:c:\bme\prog2\nagyhf2\nagyhf2\kodolvaso.cpp
 	"Kodolvaso.h"
 
+1714672876 source:c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\c-econio\econio.c
+	"econio.h"
+	<windows.h>
+	<stdio.h>
+	<conio.h>
+	<assert.h>
+	<assert.h>
+	<stdio.h>
+	<termios.h>
+	<unistd.h>
+	<stdbool.h>
+	<sys/time.h>
+	<sys/types.h>
+	<ctype.h>
+	<string.h>
+	<time.h>
+
+1714672876 c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\c-econio\econio.h
+	<stdbool.h>
+
+1714672876 source:c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\kodolvaso.cpp
+	"Kodolvaso.h"
+
+1714732965 c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\kodolvaso.h
+	<iostream>
+
+1714734026 source:c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\main.cpp
+	<iostream>
+	<time.h>
+	<conio.h>
+	"c-econio/econio.h"
+	"Erzekelo.h"
+	"Eszkoz.h"
+	"Szirena.h"
+	"Tipus.h"
+	"Logika.h"
+	"Kodolvaso.h"
+	<windows.h>
+
+1714732954 c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\erzekelo.h
+	"Eszkoz.h"
+	"Tipus.h"
+
+1714729482 c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\eszkoz.h
+
+1714732992 c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\tipus.h
+
+1714729217 c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\szirena.h
+	"Logika.h"
+	"Kodolvaso.h"
+
+1714732980 c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\logika.h
+	"Eszkoz.h"
+

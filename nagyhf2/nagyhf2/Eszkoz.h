@@ -1,4 +1,3 @@
-
 #ifndef ESZKOZOK_H
 #define ESZKOZOK_H
 

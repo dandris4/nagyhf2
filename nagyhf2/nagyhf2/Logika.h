@@ -40,7 +40,8 @@ public:
     //return: igaz, ha a logika teljesül
     bool igaze (int ido);
 
-    ~Logika();
+    //dtor
+    virtual ~Logika();
 };
 
 #endif // LOGIKA_H_INCLUDED

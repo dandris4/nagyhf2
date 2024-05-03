@@ -1,8 +1,8 @@
-#include "Eszkoz.h"
-#include "Tipus.h"
-
 #ifndef ERZEKELO_H_INCLUDED
 #define ERZEKELO_H_INCLUDED
+
+#include "Eszkoz.h"
+#include "Tipus.h"
 
 class Erzekelo :public Eszkoz {
     int ertek;
@@ -16,6 +16,7 @@ public:
     void setert(const int ujert);
 
     //Érték lekérdezése
+    //return: ertek
     int getert() const;
 
     //Visszaadja, hogy jelez-e az érzékelõ
@@ -25,7 +26,7 @@ public:
     Eszkoz* clone() const;
 
     //dtor
-    ~Erzekelo();
+    virtual ~Erzekelo();
 
 };
 

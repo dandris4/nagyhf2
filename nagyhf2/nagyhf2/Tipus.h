@@ -42,7 +42,7 @@ public:
     int getfelso() const;
 
     //dtor
-    ~ErzTipus();
+    virtual ~ErzTipus();
 };
 
 

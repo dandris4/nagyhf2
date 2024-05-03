@@ -7,6 +7,7 @@
 class Kodolvaso {
     std::string nev;
     int ertek;
+    bool jokod;
 public:
     //ctor
     //nevbe: az olvaso neve
@@ -33,8 +34,11 @@ public:
     //return igaz, ha a kód jó
     bool beut(const int kod);
 
+    //újraindítja a kódolvasót, így nem lesz aktiválva
+    void aktival();
+
     //dtor
-    ~Kodolvaso();
+    virtual ~Kodolvaso();
 };
 
 #endif // KODOLVASO_H_INCLUDED
