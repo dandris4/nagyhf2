@@ -1,9 +1,7 @@
-#ifndef LOGIKA_H_INCLUDED
-#define LOGIKA_H_INCLUDED
-
 #include "Eszkoz.h"
 
-#include "memtrace.h"
+#ifndef LOGIKA_H_INCLUDED
+#define LOGIKA_H_INCLUDED
 
 enum LogikaTipus {
     es,vagy,nem,idozito

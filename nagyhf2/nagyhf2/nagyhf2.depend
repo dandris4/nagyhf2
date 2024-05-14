@@ -1,20 +1,4 @@
 # depslib dependency file v1.0
-1713545020 source:c:\bme\prog2\nagyhf2\nagyhf2\main.cpp
-	<iostream>
-	<time.h>
-	<conio.h>
-	"c-econio/econio.h"
-	"Erzekelo.h"
-	"Eszkoz.h"
-	"Szirena.h"
-	"Tipus.h"
-	"Logika.h"
-	"Kodolvaso.h"
-	<windows.h>
-
-1557405536 c:\bme\prog2\nagyhf2\nagyhf2\c-econio\econio.h
-	<stdbool.h>
-
 1572899188 source:c:\bme\prog2\nagyhf2\nagyhf2\c-econio\econio.c
 	"econio.h"
 	<windows.h>
@@ -32,27 +16,130 @@
 	<string.h>
 	<time.h>
 
-1713598022 c:\bme\prog2\nagyhf2\nagyhf2\erzekelo.h
+1557405536 c:\bme\prog2\nagyhf2\nagyhf2\c-econio\econio.h
+	<stdbool.h>
+
+1715688967 source:c:\bme\prog2\nagyhf2\nagyhf2\erzekelo.cpp
+	"Erzekelo.h"
+	"memtrace.h"
+
+1715688997 c:\bme\prog2\nagyhf2\nagyhf2\erzekelo.h
 	"Eszkoz.h"
 	"Tipus.h"
+	<iostream>
+	"memtrace.h"
 
-1713592468 c:\bme\prog2\nagyhf2\nagyhf2\eszkoz.h
+1715688940 c:\bme\prog2\nagyhf2\nagyhf2\eszkoz.h
+	<iostream>
+	"String.h"
+	"memtrace.h"
 
-1713592468 c:\bme\prog2\nagyhf2\nagyhf2\szirena.h
-	"Logika.h"
-
-1713592468 c:\bme\prog2\nagyhf2\nagyhf2\logika.h
-	"Eszkoz.h"
-
-1713592468 c:\bme\prog2\nagyhf2\nagyhf2\tipus.h
-
-1713545020 c:\bme\prog2\nagyhf2\nagyhf2\kodolvaso.h
+1715706572 c:\bme\prog2\nagyhf2\nagyhf2\string.h
 	<iostream>
 
-1713544177 source:c:\bme\prog2\nagyhf2\nagyhf2\kodolvaso.cpp
-	"Kodolvaso.h"
+1712068341 c:\bme\prog2\nagyhf2\nagyhf2\memtrace.h
+	<new>
+	<cstdio>
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<sstream>
+	<vector>
+	<list>
+	<map>
+	<algorithm>
+	<functional>
+	<memory>
+	<iomanip>
+	<locale>
+	<typeinfo>
+	<ostream>
+	<stdexcept>
+	<ctime>
+	<iterator>
+	<regex>
 
-1714672876 source:c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\c-econio\econio.c
+1715686287 c:\bme\prog2\nagyhf2\nagyhf2\tipus.h
+	<iostream>
+	"memtrace.h"
+	"String.h"
+
+1715705745 source:c:\bme\prog2\nagyhf2\nagyhf2\eszkoz.cpp
+	"Eszkoz.h"
+	"memtrace.h"
+
+1715688700 source:c:\bme\prog2\nagyhf2\nagyhf2\kodolvaso.cpp
+	"Kodolvaso.h"
+	"memtrace.h"
+
+1715688686 c:\bme\prog2\nagyhf2\nagyhf2\kodolvaso.h
+	<iostream>
+	"String.h"
+	"memtrace.h"
+
+1712068341 source:c:\bme\prog2\nagyhf2\nagyhf2\memtrace.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<ctype.h>
+	"memtrace.h"
+
+1715688795 source:c:\bme\prog2\nagyhf2\nagyhf2\string.cpp
+	<string.h>
+	"String.h"
+	"memtrace.h"
+
+1715706564 source:c:\bme\prog2\nagyhf2\nagyhf2\tester.cpp
+	"Erzekelo.h"
+	"Eszkoz.h"
+	"Szirena.h"
+	"Tipus.h"
+	"Logika.h"
+	"Kodolvaso.h"
+	"tester.h"
+	"memtrace.h"
+
+1715675310 c:\bme\prog2\nagyhf2\nagyhf2\szirena.h
+	"Logika.h"
+	"Kodolvaso.h"
+	<iostream>
+	"memtrace.h"
+
+1715675310 c:\bme\prog2\nagyhf2\nagyhf2\logika.h
+	"Eszkoz.h"
+	"memtrace.h"
+
+1715675310 c:\bme\prog2\nagyhf2\nagyhf2\tester.h
+	"Erzekelo.h"
+	"Eszkoz.h"
+	"Szirena.h"
+	"Tipus.h"
+	"Logika.h"
+	"Kodolvaso.h"
+	"memtrace.h"
+
+1715688535 source:c:\bme\prog2\nagyhf2\nagyhf2\tipus.cpp
+	"Tipus.h"
+	"memtrace.h"
+
+1715706551 source:c:\bme\prog2\nagyhf2\nagyhf2\main.cpp
+	<iostream>
+	<time.h>
+	"c-econio/econio.h"
+	<conio.h>
+	<windows.h>
+	"Erzekelo.h"
+	"Eszkoz.h"
+	"Szirena.h"
+	"Tipus.h"
+	"Logika.h"
+	"Kodolvaso.h"
+	"String.h"
+	"tester.h"
+	"memtrace.h"
+
+1572899188 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\c-econio\econio.c
 	"econio.h"
 	<windows.h>
 	<stdio.h>
@@ -69,40 +156,126 @@
 	<string.h>
 	<time.h>
 
-1714672876 c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\c-econio\econio.h
+1557405536 c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\c-econio\econio.h
 	<stdbool.h>
 
-1714672876 source:c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\kodolvaso.cpp
-	"Kodolvaso.h"
+1715688967 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\erzekelo.cpp
+	"Erzekelo.h"
+	"memtrace.h"
 
-1714732965 c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\kodolvaso.h
+1715688997 c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\erzekelo.h
+	"Eszkoz.h"
+	"Tipus.h"
+	<iostream>
+	"memtrace.h"
+
+1715688940 c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\eszkoz.h
+	<iostream>
+	"String.h"
+	"memtrace.h"
+
+1715706572 c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\string.h
 	<iostream>
 
-1714734026 source:c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\main.cpp
+1712068341 c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\memtrace.h
+	<new>
+	<cstdio>
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<sstream>
+	<vector>
+	<list>
+	<map>
+	<algorithm>
+	<functional>
+	<memory>
+	<iomanip>
+	<locale>
+	<typeinfo>
+	<ostream>
+	<stdexcept>
+	<ctime>
+	<iterator>
+	<regex>
+
+1715686287 c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\tipus.h
+	<iostream>
+	"memtrace.h"
+	"String.h"
+
+1715705745 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\eszkoz.cpp
+	"Eszkoz.h"
+	"memtrace.h"
+
+1715688700 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\kodolvaso.cpp
+	"Kodolvaso.h"
+	"memtrace.h"
+
+1715688686 c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\kodolvaso.h
+	<iostream>
+	"String.h"
+	"memtrace.h"
+
+1715706551 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\main.cpp
 	<iostream>
 	<time.h>
-	<conio.h>
 	"c-econio/econio.h"
+	<conio.h>
+	<windows.h>
 	"Erzekelo.h"
 	"Eszkoz.h"
 	"Szirena.h"
 	"Tipus.h"
 	"Logika.h"
 	"Kodolvaso.h"
-	<windows.h>
+	"String.h"
+	"tester.h"
+	"memtrace.h"
 
-1714732954 c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\erzekelo.h
-	"Eszkoz.h"
-	"Tipus.h"
-
-1714729482 c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\eszkoz.h
-
-1714732992 c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\tipus.h
-
-1714729217 c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\szirena.h
+1715675310 c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\szirena.h
 	"Logika.h"
 	"Kodolvaso.h"
+	<iostream>
+	"memtrace.h"
 
-1714732980 c:\bme\prg2\hf2\nagyhf2\nagyhf2\nagyhf2\logika.h
+1715675310 c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\logika.h
 	"Eszkoz.h"
+	"memtrace.h"
+
+1715675310 c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\tester.h
+	"Erzekelo.h"
+	"Eszkoz.h"
+	"Szirena.h"
+	"Tipus.h"
+	"Logika.h"
+	"Kodolvaso.h"
+	"memtrace.h"
+
+1712068341 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\memtrace.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<ctype.h>
+	"memtrace.h"
+
+1715688795 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\string.cpp
+	<string.h>
+	"String.h"
+	"memtrace.h"
+
+1715706564 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\tester.cpp
+	"Erzekelo.h"
+	"Eszkoz.h"
+	"Szirena.h"
+	"Tipus.h"
+	"Logika.h"
+	"Kodolvaso.h"
+	"tester.h"
+	"memtrace.h"
+
+1715688535 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\tipus.cpp
+	"Tipus.h"
+	"memtrace.h"
 

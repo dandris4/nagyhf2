@@ -4,42 +4,29 @@
 #include "Eszkoz.h"
 #include "Tipus.h"
 
-#include <iostream>
-
-#include "memtrace.h"
-
 class Erzekelo :public Eszkoz {
     int ertek;
     ErzTipus tipus;
 public:
     //ctor
-    Erzekelo(const String &nev, const ErzTipus tipbe);
-
-    //mctor
-    Erzekelo(Erzekelo& be);
+    Erzekelo(const std::string nev, const ErzTipus tipbe);
 
     //Új érték beállítása
     //ujert: az új érték
     void setert(const int ujert);
-
-    //Új típus beállítása
-    //ujerz: az új típus
-    void seterztip(const ErzTipus ujerz);
-
-    //Típus lekérdezése
-    //return: tipus
-    ErzTipus geterztip() const;
 
     //Érték lekérdezése
     //return: ertek
     int getert() const;
 
     //Visszaadja, hogy jelez-e az érzékelõ
-    bool igaze(int ido = 0);
+    bool igaze();
 
     //klónozás, a kollekcióhoz, illetve a szirénánál meg hasonlóknál ne legyen probléma, ha olyat törlünk, ami nem hozzá tartozik
-    Erzekelo* clone() const;
+    Eszkoz* clone() const;
 
+    //dtor
+    virtual ~Erzekelo();
 
 };
 

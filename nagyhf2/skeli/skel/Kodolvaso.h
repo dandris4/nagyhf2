@@ -1,24 +1,22 @@
-#ifndef KODOLVASO_H_INCLUDED
-#define KODOLVASO_H_INCLUDED
 
 #include <iostream>
 
-#include "String.h"
-#include "memtrace.h"
+#ifndef KODOLVASO_H_INCLUDED
+#define KODOLVASO_H_INCLUDED
 
 class Kodolvaso {
-    String nev;
+    std::string nev;
     int ertek;
     bool jokod;
 public:
     //ctor
     //nevbe: az olvaso neve
     //erbe: az olvaso erteke
-    Kodolvaso(const String &nevbe, const int erbe = 0);
+    Kodolvaso(const std::string &nevbe, const int erbe = 0);
 
     //név beállítása
     //nevbe: új név
-    void setnev(const String &nevbe);
+    void setnev(const std::string nevbe);
 
     //érték beállítása
     //erbe: új érték
@@ -26,7 +24,7 @@ public:
 
     //név lekérése
     //return név
-    String getnev() const;
+    std::string getnev() const;
 
     //érték lekérése
     //return érték
@@ -38,9 +36,6 @@ public:
 
     //újraindítja a kódolvasót, így nem lesz aktiválva
     void aktival();
-
-    //Visszaadja, hogy beütöttek-e jó kódot
-    bool igaze();
 
     //dtor
     virtual ~Kodolvaso();

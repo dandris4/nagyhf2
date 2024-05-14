@@ -1,7 +1,11 @@
 #include <iostream>
 #include <time.h>
-#include <conio.h>
 #include "c-econio/econio.h"
+
+#ifdef _WIN32
+    #include <conio.h>
+    #include <windows.h>
+#endif
 
 #include "Erzekelo.h"
 #include "Eszkoz.h"
@@ -9,15 +13,37 @@
 #include "Tipus.h"
 #include "Logika.h"
 #include "Kodolvaso.h"
+#include "String.h"
 
+#include "tester.h"
 
-#ifdef _WIN32
-    #include <windows.h>
-#endif
+#include "memtrace.h"
+
 
 bool mentes(std::string &filenev, Logika* logikak, Erzekelo* erzekelok, ErzTipus* tipusok, Kodolvaso* kodolvasok) {return true;}
 
 bool betoltes(std::string &filenev, Logika* logikak, Erzekelo* erzekelok, ErzTipus* tipusok, Kodolvaso* kodolvasok) {return true;}
+
+int getcharwoent () {
+
+    #ifdef _WIN32
+        return getch();
+    #else
+        return getchar();
+    #endif // _WIN32
+
+
+}
+
+bool lenyomtae () {
+
+    #ifdef _WIN32
+        return kbhit();
+    #else
+        return true;
+    #endif // _WIN32
+
+}
 
 void jelenlegi(const char* be) {
     econio_textbackground(COL_WHITE);
@@ -28,10 +54,25 @@ void jelenlegi(const char* be) {
 }
 
 int main() {
+
     #ifdef _WIN32
         SetConsoleCP(1250);
         SetConsoleOutputCP(1250);
     #endif
+
+    std::cout << "Osztályok tesztelése:\n\n";
+
+    test_all();
+
+    std::cout << "Tesztek befejezve.\nKilépéshez vissza gomb, folytatáshoz enter.\n";
+
+    int tveg = getcharwoent();
+    while (tveg != 13 && tveg != 8 && tveg != 'b') {
+        tveg = getcharwoent();
+    }
+    int allapot;
+    tveg == 13 ? allapot = 0 : allapot = -1;
+
 
     struct timespec tstart={0,0};
     clock_gettime(CLOCK_MONOTONIC, &tstart);
@@ -42,7 +83,8 @@ int main() {
     Erzekelo* erzekelok = 0;
     ErzTipus* tipusok = 0;
     Kodolvaso* kodolvasok = 0;
-    for (int allapot = 0; allapot > -1;) {
+    econio_clrscr();
+    while (allapot > -1) {
         if (allapot == 0) { //fömenü
             econio_gotoxy(0,0);
             std::cout << "Alap/\n\n";
@@ -100,7 +142,7 @@ int main() {
 
 
 
-            int get = getch();
+            int get = getcharwoent();
             if ((get == 72 || get == 'w') && current > 0)
                 current--;
             if ((get == 's' || get == 80) && current < 8)
@@ -156,9 +198,9 @@ int main() {
             if (stpmegy)
                 ido++;
 
-            if (kbhit()) {
+            if (lenyomtae()) {
 
-                int get = getch();
+                int get = getcharwoent();
 
                 if ((get == 72 || get == 'w') && current > 0)
                     current--;
@@ -176,7 +218,7 @@ int main() {
         if (allapot == 2) { //mentés
             econio_gotoxy(0,0);
             std::cout << "Mentés file-ba\n\nFile név: (vagy elérési út)" << filenev << "\n";
-            int get = getch();
+            int get = getcharwoent();
             if (get < 255 && get > 31 && get != 46)
                 filenev += get;
             switch (get) {
@@ -188,7 +230,7 @@ int main() {
                     std::cout << "Kilépéshez nyomj entert vagy backspace-t.";
                     bool kilep = false;
                     while (!kilep) {
-                        get = getch();
+                        get = getcharwoent();
                         if (get == 13 || get == 8)
                             kilep = true;
                     }
@@ -211,7 +253,7 @@ int main() {
         if (allapot == 3) { //betöltés
             econio_gotoxy(0,0);
             std::cout << "Betöltés file-ból\n\nFile név (vagy elérési út):" << filenev << "\n";
-            int get = getch();
+            int get = getcharwoent();
             if (get < 255 && get > 31 && get != 46)
                 filenev += get;
             switch (get) {
@@ -223,7 +265,7 @@ int main() {
                     std::cout << "Kilépéshez nyomj entert vagy backspace-t.";
                     bool kilep = false;
                     while (!kilep) {
-                        get = getch();
+                        get = getcharwoent();
                         if (get == 13 || get == 8)
                             kilep = true;
                     }

@@ -1,21 +1,17 @@
+
 #ifndef TIPUS_H_INCLUDED
 #define TIPUS_H_INCLUDED
 
-#include <iostream>
-
-#include "memtrace.h"
-#include "String.h"
-
-struct ErzTipus {
-    String nev;
+class ErzTipus {
+    std::string nev;
     int alapert, also, felso;
 public:
     //ctor
-    ErzTipus(const String &sbe, const int alpbe, const int felsbe, const int alsbe);
+    ErzTipus(const std::string &sbe, const int alpbe, const int felsbe, const int alsbe);
 
     //név beállítása
     //nevbe: új név
-    void setnev(const String &nevbe);
+    void setnev(const std::string nevbe);
 
     //alap érték beállítása
     //erbe: új érték
@@ -31,7 +27,7 @@ public:
 
     //név lekérése
     //return név
-    String getnev() const;
+    std::string getnev() const;
 
     //alap érték lekérése
     //return érték
@@ -44,6 +40,9 @@ public:
     //felsõ határérték lekérése
     //return érték
     int getfelso() const;
+
+    //dtor
+    virtual ~ErzTipus();
 };
 
 

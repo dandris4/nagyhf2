@@ -4,10 +4,6 @@
 #include "Logika.h"
 #include "Kodolvaso.h"
 
-#include <iostream>
-
-#include "memtrace.h"
-
 enum szirall {
     alap, szamlal, riaszt
 };
