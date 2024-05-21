@@ -20,11 +20,35 @@
 #include "memtrace.h"
 
 
-bool mentes(String &filenev, Logika* logikak, Erzekelo* erzekelok, ErzTipus* tipusok, Kodolvaso* kodolvasok) {
+bool mentes(String &filenev, Logika* logikak, Erzekelo* erzekelok, ErzTipus* tipusok, Szirena* szirenak, Kodolvaso* kodolvasok, int *elemszam) {
+
+    std::ofstream f;
+    f.open(filenev.c_str());
+    if (!f)
+        return false;
+    for (size_t i = 0; i < 5; i++)
+            f << elemszam[i] << ' ';
+    f << '\n';
+    for (int i = 0; i < elemszam[2]; i++) {
+        f << tipusok[i].getnev() << ' ' << tipusok[i].getalap() << ' ' << tipusok[i].getalso() << ' ' << tipusok[i].getfelso() << "\n";
+    }
+    for (int i = 0; i < elemszam[1]; i++) {
+        f << erzekelok[i].getnev() << ' ' << erzekelok[i].geterztip().getnev() << "\n";
+    }
+    for (int i = 0; i < elemszam[0]; i++) {
+        f << logikak[i].getnev() << ' ' << logikak[i].gettip() << ' ' << logikak[i].getidoz() << ' ' << logikak[i].size() << "\n";
+        for (size_t a = 0; a < logikak[i].size(); a++)
+            f << logikak[i].getelem(a)->gettip() << ' ' << logikak[i].getelem(a)->getnev() << "\n";
+    }
+    for (int i = 0; i < elemszam[4]; i++) {
+        f << kodolvasok[i].getnev() << ' ' << kodolvasok[i].getert() << "\n";
+    }
+    for (int i = 0; i < elemszam[3]; i++) {
+        f << szirenak[i].getnev() << ' ' << szirenak[i].getlogika()->getnev() << ' ' << szirenak[i].getidoz() << ' ' << szirenak[i].getolvas()->getnev() << "\n";
+    }
+    f.close();
 
     return true;
-
-
 }
 
 bool betoltes(String &filenev, Logika* logikak, Erzekelo* erzekelok, ErzTipus* tipusok, Kodolvaso* kodolvasok) {return true;}
@@ -58,7 +82,7 @@ void jelenlegi(const String& be) { //Kiemeli a bejövö sztringet
     econio_textcolor(COL_WHITE);
 }
 
-void logiklistaz(Logika* elemek, size_t darab, int kcurrent) { //Kilistázza a logikákat a konzolra
+void logiklistaz(Logika* elemek, size_t darab, int kcurrent, bool ujkiir) { //Kilistázza a logikákat a konzolra
     for (size_t i = 0; i < darab; i++) {
         String kiir = "  ";
         kiir += elemek[i].getnev();
@@ -68,13 +92,15 @@ void logiklistaz(Logika* elemek, size_t darab, int kcurrent) { //Kilistázza a lo
         else
             std::cout << kiir;
     }
-    if ((size_t)kcurrent == darab)
-        jelenlegi("  Új Logika\n");
-    else
-        std::cout << "  Új Logika\n";
+    if (ujkiir) {
+        if ((size_t)kcurrent == darab)
+            jelenlegi("  Új Logika\n");
+        else
+            std::cout << "  Új Logika\n";
+    }
 }
 
-void erzlistaz(Erzekelo* elemek, size_t darab, int kcurrent) { //Kilistázza a érzékelöket a konzolra
+void erzlistaz(Erzekelo* elemek, size_t darab, int kcurrent, bool ujkiir) { //Kilistázza a érzékelöket a konzolra
     for (size_t i = 0; i < darab; i++) {
         String kiir = "  ";
         kiir += elemek[i].getnev();
@@ -84,13 +110,15 @@ void erzlistaz(Erzekelo* elemek, size_t darab, int kcurrent) { //Kilistázza a ér
         else
             std::cout << kiir;
     }
-    if ((size_t)kcurrent == darab)
-        jelenlegi("  Új Érzékelö\n");
-    else
-        std::cout << "  Új Érzékelö\n";
+    if (ujkiir) {
+        if ((size_t)kcurrent == darab)
+            jelenlegi("  Új Érzékelö\n");
+        else
+            std::cout << "  Új Érzékelö\n";
+    }
 }
 
-void tiplistaz(ErzTipus* elemek, size_t darab, int kcurrent) { //Kilistázza a típusokat a konzolra
+void tiplistaz(ErzTipus* elemek, size_t darab, int kcurrent, bool ujkiir) { //Kilistázza a típusokat a konzolra
     for (size_t i = 0; i < darab; i++) {
         String kiir = "  ";
         kiir += elemek[i].getnev();
@@ -100,13 +128,15 @@ void tiplistaz(ErzTipus* elemek, size_t darab, int kcurrent) { //Kilistázza a tí
         else
             std::cout << kiir;
     }
-    if ((size_t)kcurrent == darab)
-        jelenlegi("  Új Típus\n");
-    else
-        std::cout << "  Új Típus\n";
+    if (ujkiir) {
+        if ((size_t)kcurrent == darab)
+            jelenlegi("  Új Típus\n");
+        else
+            std::cout << "  Új Típus\n";
+    }
 }
 
-void szirenlistaz(Szirena* elemek, size_t darab, int kcurrent) { //Kilistázza a szirénákat a konzolra
+void szirenlistaz(Szirena* elemek, size_t darab, int kcurrent, bool ujkiir) { //Kilistázza a szirénákat a konzolra
     for (size_t i = 0; i < darab; i++) {
         String kiir = "  ";
         kiir += elemek[i].getnev();
@@ -116,13 +146,15 @@ void szirenlistaz(Szirena* elemek, size_t darab, int kcurrent) { //Kilistázza a 
         else
             std::cout << kiir;
     }
-    if ((size_t)kcurrent == darab)
-        jelenlegi("  Új Sziréna\n");
-    else
-        std::cout << "  Új Sziréna\n";
+    if (ujkiir) {
+        if ((size_t)kcurrent == darab)
+            jelenlegi("  Új Sziréna\n");
+        else
+            std::cout << "  Új Sziréna\n";
+    }
 }
 
-void olvlistaz(Kodolvaso* elemek, size_t darab, int kcurrent) { //Kilistázza az olvasókat a konzolra
+void olvlistaz(Kodolvaso* elemek, size_t darab, int kcurrent, bool ujkiir) { //Kilistázza az olvasókat a konzolra
     for (size_t i = 0; i < darab; i++) {
         String kiir = "  ";
         kiir += elemek[i].getnev();
@@ -132,10 +164,12 @@ void olvlistaz(Kodolvaso* elemek, size_t darab, int kcurrent) { //Kilistázza az 
         else
             std::cout << kiir;
     }
-    if ((size_t)kcurrent == darab)
-        jelenlegi("  Új Olvasó\n");
-    else
-        std::cout << "  Új Olvasó\n";
+    if (ujkiir) {
+        if ((size_t)kcurrent == darab)
+            jelenlegi("  Új Olvasó\n");
+        else
+            std::cout << "  Új Olvasó\n";
+    }
 }
 
 
@@ -162,7 +196,7 @@ int main() {
 
     struct timespec tstart={0,0};
     clock_gettime(CLOCK_MONOTONIC, &tstart);
-    int current = 0, ido = 0, kcurrent = -1, elemszam[5] = {0};
+    int current = 0, ido = 0, kcurrent = -1, alkcurrent = -1, elemszam[5] = {0};
     bool stpmegy = false, lenyit[5] = {0};
     String filenev("");
     Logika* logikak = nullptr;
@@ -178,34 +212,32 @@ int main() {
     Szirena  temps;
     Kodolvaso tempo;
 
-
-
     econio_clrscr();
     while (allapot > -1) {
         if (allapot == 0) { //fömenü
             econio_gotoxy(0,0);
-            std::cout << "Alap/\n\n";
+            std::cout << "Menü\n\n";
 
             {   //A fömenü kiírása
             if (current == 0)
                 if (kcurrent == -1)
                     if (lenyit[0]) {
                         jelenlegi("v Logikák:\n");
-                        logiklistaz(logikak, elemszam[0], kcurrent);
+                        logiklistaz(logikak, elemszam[0], kcurrent, true);
                     }
                     else
                         jelenlegi("> Logikák:\n");
                 else
                     if (lenyit[0]) {
                         std::cout << "v Logikák:\n";
-                        logiklistaz(logikak, elemszam[0], kcurrent);
+                        logiklistaz(logikak, elemszam[0], kcurrent, true);
                     }
                     else
                         std::cout << "> Logikák:\n";
             else
                 if (lenyit[0]) {
                     std::cout << "v Logikák:\n";
-                    logiklistaz(logikak, elemszam[0], -1);
+                    logiklistaz(logikak, elemszam[0], -1, true);
                 }
                 else
                     std::cout << "> Logikák:\n";
@@ -214,21 +246,21 @@ int main() {
                 if (kcurrent == -1)
                     if (lenyit[1]) {
                         jelenlegi("v Érzékelök:\n");
-                        erzlistaz(erzekelok, elemszam[1], kcurrent);
+                        erzlistaz(erzekelok, elemszam[1], kcurrent, true);
                     }
                     else
                         jelenlegi("> Érzékelök:\n");
                 else
                     if (lenyit[1]) {
                         std::cout << "v Érzékelök:\n";
-                        erzlistaz(erzekelok, elemszam[1], kcurrent);
+                        erzlistaz(erzekelok, elemszam[1], kcurrent, true);
                     }
                     else
                         std::cout << "> Érzékelök:\n";
             else
                 if (lenyit[1]) {
                     std::cout << "v Érzékelök:\n";
-                    erzlistaz(erzekelok, elemszam[1], -1);
+                    erzlistaz(erzekelok, elemszam[1], -1, true);
                 }
                 else
                     std::cout << "> Érzékelök:\n";
@@ -237,21 +269,21 @@ int main() {
                 if (kcurrent == -1)
                     if (lenyit[2]) {
                         jelenlegi("v Típusok:\n");
-                        tiplistaz(tipusok, elemszam[2], kcurrent);
+                        tiplistaz(tipusok, elemszam[2], kcurrent, true);
                     }
                     else
                         jelenlegi("> Típusok:\n");
                 else
                     if (lenyit[2]) {
                         std::cout << "v Típusok:\n";
-                        tiplistaz(tipusok, elemszam[2], kcurrent);
+                        tiplistaz(tipusok, elemszam[2], kcurrent, true);
                     }
                     else
                         std::cout << "> Típusok:\n";
             else
                 if (lenyit[2]) {
                     std::cout << "v Típusok:\n";
-                    tiplistaz(tipusok, elemszam[2], -1);
+                    tiplistaz(tipusok, elemszam[2], -1, true);
                 }
                 else
                     std::cout << "> Típusok:\n";
@@ -261,21 +293,21 @@ int main() {
                 if (kcurrent == -1)
                     if (lenyit[3]) {
                         jelenlegi("v Szirénák:\n");
-                        szirenlistaz(szirenak, elemszam[3], kcurrent);
+                        szirenlistaz(szirenak, elemszam[3], kcurrent, true);
                     }
                     else
                         jelenlegi("> Szirénák:\n");
                 else
                     if (lenyit[3]) {
                         std::cout << "v Szirénák:\n";
-                        szirenlistaz(szirenak, elemszam[3], kcurrent);
+                        szirenlistaz(szirenak, elemszam[3], kcurrent, true);
                     }
                     else
                         std::cout << "> Szirénák:\n";
             else
                 if (lenyit[3]) {
                     std::cout << "v Szirénák:\n";
-                    szirenlistaz(szirenak, elemszam[3], -1);
+                    szirenlistaz(szirenak, elemszam[3], -1, true);
                 }
                 else
                     std::cout << "> Szirénák:\n";
@@ -284,21 +316,21 @@ int main() {
                 if (kcurrent == -1)
                     if (lenyit[4]) {
                         jelenlegi("v Olvasók:\n");
-                        olvlistaz(kodolvasok, elemszam[4], kcurrent);
+                        olvlistaz(kodolvasok, elemszam[4], kcurrent, true);
                     }
                     else
                         jelenlegi("> Olvasók:\n");
                 else
                     if (lenyit[4]) {
                         std::cout << "v Olvasók:\n";
-                        olvlistaz(kodolvasok, elemszam[4], kcurrent);
+                        olvlistaz(kodolvasok, elemszam[4], kcurrent, true);
                     }
                     else
                         std::cout << "> Olvasók:\n";
             else
                 if (lenyit[4]) {
                     std::cout << "v Olvasók:\n";
-                    olvlistaz(kodolvasok, elemszam[4], -1);
+                    olvlistaz(kodolvasok, elemszam[4], -1, true);
                 }
                 else
                     std::cout << "> Olvasók:\n";
@@ -380,6 +412,17 @@ int main() {
                         if (kcurrent == -1) {
                             lenyit[1] = !lenyit[1];
                             econio_clrscr();
+                        }
+                        else {
+                            allapot = 5;
+                            econio_clrscr();
+                            current = 0;
+                            if (kcurrent == elemszam[1]) {
+                                Erzekelo alap;
+                                tempe = alap;
+                            }
+                            else
+                                tempe = erzekelok[kcurrent];
                         }
                         break;
                     case 2:
@@ -491,13 +534,13 @@ int main() {
 
 
             econio_gotoxy(0,0);
-            std::cout << "Mentés file-ba\n\nFile név: (vagy elérési út)" << filenev << "\n";
+            std::cout << "Mentés file-ba\n\nFile név: (vagy elérési út) " << filenev << "\n";
             int get = getcharwoent();
             if (get < 255 && get > 31 && get != 46)
                 filenev += get;
             switch (get) {
                 case 13 : {//Mentés filenévvel
-                    if (mentes(filenev, logikak, erzekelok, tipusok, kodolvasok))
+                    if (mentes(filenev, logikak, erzekelok, tipusok, szirenak, kodolvasok, elemszam))
                         std::cout << "Sikeres mentés!\n";
                     else
                         std::cout << "Mentés sikertelen!\n";
@@ -524,6 +567,7 @@ int main() {
                     break;
             }
         }
+
         if (allapot == 3) { //betöltés
 
 
@@ -561,23 +605,209 @@ int main() {
                     break;
             }
         }
+
         if (allapot == 4) { //Logika szerkesztése
-
-            /*
-
-            std::cout << "Logika szerkesztése\n\n";
-            std::cout << "Típus:\n";
-
-            if (temp.getltip() == es)
-                jelenlegi("És\n");
-            else
-                std::cout << "És\n";
-
-            econio_gotoxy(0,0);*/
         }
 
         if (allapot == 5) { //Érzékelö szerkesztése
+            String alapnev;
+            Erzekelo alap;
+            if (kcurrent == elemszam[1])
+                alapnev = alap.getnev();
+            else
+                alapnev = erzekelok[kcurrent].getnev();
 
+            {   //Menü kiírása
+
+            std::cout << "Érzékelö szerkesztése\nNév:" << alapnev << "\n\n";
+
+            if (current == 0) {
+                jelenlegi("Név: ");
+                jelenlegi(tempe.getnev());
+            }
+            else
+                std::cout << "Név: " << tempe.getnev();
+            std::cout << "\n";
+
+            std::cout << "Típus: " << tempe.geterztip().getnev() << "\n";
+
+            if (current == 1)
+                if (alkcurrent == -1) {
+                    jelenlegi("v Típusok:\n");
+                    tiplistaz(tipusok, elemszam[2], alkcurrent, false);
+                }
+                else {
+                    std::cout << "v Típusok:\n";
+                    tiplistaz(tipusok, elemszam[2], alkcurrent, false);
+                }
+            else {
+                std::cout << "v Típusok:\n";
+                tiplistaz(tipusok, elemszam[2], -1, false);
+            }
+
+            if (current == 2) {
+                jelenlegi("Mentés");
+            }
+            else
+                std::cout << "Mentés";
+            std::cout << "\n";
+
+            if (current == 3) {
+                jelenlegi("Törlés");
+            }
+            else
+                std::cout << "Törlés";
+            std::cout << "\n";
+
+            if (current == 4) {
+                jelenlegi("Kilépés");
+            }
+            else
+                std::cout << "Kilépés";
+            std::cout << "\n";
+
+            }
+
+            int get = getcharwoent();
+            String nev = tempe.getnev();
+
+            if (ir == true) { //Elem szerkesztésekor
+                switch (current) {
+                    case 0:
+                        if (get < 255 && get > 31 && get != 46) {
+                            nev += get;
+                            econio_clrscr();
+                        }
+                        switch (get) {
+                            case 13 :
+                                ir = false;
+                                break;
+                            case 46 :
+                                nev--;
+                                econio_clrscr();
+                                break;
+                            case 8 :
+                                ir = false;
+                                break;
+                        }
+                        tempe.setnev(nev);
+                        break;
+                }
+            }
+            else {
+
+                if (get == 13 && current == 2) {
+                    if (tempe.getnev() == "" || tempe.geterztip().getnev() == "") { //Nem menthet név nélkül
+                        econio_clrscr();
+                            std::cout << "A név vagy a típus nem lehet üres!\n(folytatáshoz nyomj entert)";
+                            get = getcharwoent();
+                            while(get != 13)
+                            get = getcharwoent();
+                        econio_clrscr();
+                    }
+                    else {
+                        int vane = -1;
+                        for (int i = 0; i < elemszam[1]; i++)
+                            if (erzekelok[i].getnev() == tempe.getnev())
+                                vane = i;
+                        if (vane != -1) {
+                            if (tempe.getnev() == alapnev){
+                                erzekelok[vane] = tempe;
+                                econio_clrscr();
+                                    std::cout << "Mentés kész\n(folytatáshoz nyomj entert)";
+                                    get = getcharwoent();
+                                    while(get != 13)
+                                    get = getcharwoent();
+                                econio_clrscr();
+                            }
+                            else {
+                                econio_clrscr();
+                                    std::cout << "Már van ilyen nevü érzékelö!\n(folytatáshoz nyomj entert)";
+                                    get = getcharwoent();
+                                    while(get != 13)
+                                    get = getcharwoent();
+                                econio_clrscr();
+                            }
+                        }
+                        else {
+                            elemszam[1]++;
+                            Erzekelo *uj = new Erzekelo[elemszam[1]];
+                            for (size_t i = 0; (int)i < elemszam[1] - 1; i++)
+                                uj[i] = erzekelok[i];
+                            uj[elemszam[1] - 1] = tempe;
+                            delete[] erzekelok;
+                            erzekelok = uj;
+                            econio_clrscr();
+                                std::cout << "Mentés kész\n(folytatáshoz nyomj entert)";
+                                get = getcharwoent();
+                                while(get != 13)
+                                get = getcharwoent();
+                            econio_clrscr();
+                        }
+                    }
+                }
+
+                if (get == 13 && current == 3) {
+                    if (kcurrent == elemszam[1]) {
+                        econio_clrscr();
+                        std::cout << "Ezt nem lehet törölni!\n(folytatáshoz nyomj entert)";
+                        get = getcharwoent();
+                        while(get != 13)
+                            get = getcharwoent();
+                        econio_clrscr();
+                    }
+                    else { //Törlés, ha nincs használva
+                    }
+                }
+
+                if (get == 13 && current == 0) {
+                    ir = true;
+                }
+
+                if (get == 13 && current == 1 && alkcurrent != -1) {
+                    tempe.seterztip(tipusok[alkcurrent]);
+                }
+
+                if (current == 1) { //Típusok között léptet
+                    if (get == 72 || get == 'w') {
+                        if (alkcurrent > -1)
+                            alkcurrent--;
+                        else
+                        if (alkcurrent == -1) {
+                            current--;
+                            alkcurrent = -1;
+                        }
+                    }
+                    if (get == 's' || get == 80) {
+                        if (alkcurrent < elemszam[2]) {
+                            alkcurrent++;
+                        }
+                        if (alkcurrent == elemszam[2]) {
+                            alkcurrent = -1;
+                            current++;
+                        }
+                    }
+                }
+                else { //Egyébként léptet
+                    if ((get == 72 || get == 'w') && current > 0) {
+                        if (current == 2)
+                            alkcurrent = elemszam[2] - 1;
+                        current--;
+                    }
+                    if ((get == 's' || get == 80) && current < 4) {
+                        current++;
+                    }
+                }
+
+                if (get == 8 || (current == 4 && get == 13) || get == 'b') {
+                    allapot = 0;
+                    current = 0;
+                    kcurrent = -1;
+                    econio_clrscr();
+                }
+            }
+
+            econio_gotoxy(0,0);
         }
 
         if (allapot == 6) { //Típus szerkesztése
@@ -591,7 +821,7 @@ int main() {
 
             {   //Menü kiírása
 
-            std::cout << "Típus szerkesztése\nEredeti név:" << alapnev << "\n\n";
+            std::cout << "Típus szerkesztése\nNév:" << alapnev << "\n\n";
 
             if (current == 0) {
                 jelenlegi("Név: ");
@@ -761,13 +991,46 @@ int main() {
             else {
 
                 if (get == 13 && current == 4) {
-                    int vane = -1;
-                    for (int i = 0; i < elemszam[2]; i++)
-                        if (tipusok[i].getnev() == tempt.getnev())
-                            vane = i;
-                    if (vane != -1) {
-                        if (tempt.getnev() == alapnev){
-                            tipusok[vane] = tempt;
+                    if (tempt.getnev() == "") { //Nem menthet név nélkül
+                        econio_clrscr();
+                            std::cout << "A név nem lehet üres!\n(folytatáshoz nyomj entert)";
+                            get = getcharwoent();
+                            while(get != 13)
+                            get = getcharwoent();
+                        econio_clrscr();
+                    }
+                    else {
+                        int vane = -1;
+                        for (int i = 0; i < elemszam[2]; i++)   //Megnézzük, hogy van-e névütközés
+                            if (tipusok[i].getnev() == tempt.getnev())
+                                vane = i;
+                        if (vane != -1) {
+                            if (tempt.getnev() == alapnev){ //Ha van, de ezt nyitottuk meg, akkor felülírjuk
+                                tipusok[vane] = tempt;
+                                econio_clrscr();
+                                    std::cout << "Mentés kész\n(folytatáshoz nyomj entert)";
+                                    get = getcharwoent();
+                                    while(get != 13)
+                                    get = getcharwoent();
+                                econio_clrscr();
+                            }
+                            else {  //Egyébként nem menthet
+                                econio_clrscr();
+                                    std::cout << "Már van ilyen nevü típus!\n(folytatáshoz nyomj entert)";
+                                    get = getcharwoent();
+                                    while(get != 13)
+                                    get = getcharwoent();
+                                econio_clrscr();
+                            }
+                        }
+                        else {  //Ha nincs elmentjük
+                            elemszam[2]++;
+                            ErzTipus *uj = new ErzTipus[elemszam[2]];
+                            for (size_t i = 0; (int)i < elemszam[2] - 1; i++)
+                                uj[i] = tipusok[i];
+                            uj[elemszam[2] - 1] = tempt;
+                            delete[] tipusok;
+                            tipusok = uj;
                             econio_clrscr();
                                 std::cout << "Mentés kész\n(folytatáshoz nyomj entert)";
                                 get = getcharwoent();
@@ -775,29 +1038,6 @@ int main() {
                                 get = getcharwoent();
                             econio_clrscr();
                         }
-                        else {
-                            econio_clrscr();
-                                std::cout << "Már van ilyen nevü típus!\n(folytatáshoz nyomj entert)";
-                                get = getcharwoent();
-                                while(get != 13)
-                                get = getcharwoent();
-                            econio_clrscr();
-                        }
-                    }
-                    else {
-                        elemszam[2]++;
-                        ErzTipus *uj = new ErzTipus[elemszam[2]];
-                        for (size_t i = 0; (int)i < elemszam[2] - 1; i++)
-                            uj[i] = tipusok[i];
-                        uj[elemszam[2] - 1] = tempt;
-                        delete[] tipusok;
-                        tipusok = uj;
-                        econio_clrscr();
-                            std::cout << "Mentés kész\n(folytatáshoz nyomj entert)";
-                            get = getcharwoent();
-                            while(get != 13)
-                            get = getcharwoent();
-                        econio_clrscr();
                     }
                 }
 
@@ -810,8 +1050,52 @@ int main() {
                             get = getcharwoent();
                         econio_clrscr();
                     }
-                    else { //Törlés, ha nincs használva
-
+                    else { //Törlés, ha nincs használva és létezik ilyen nevü
+                        int idx = -1;
+                        for (int i = 0; i < elemszam[2]; i++)
+                            if (tipusok[i].getnev() == tempt.getnev())
+                                idx = i;
+                        if (idx == -1) {
+                            econio_clrscr();
+                            std::cout << "Nincs ilyen nevü típus!\n(folytatáshoz nyomj entert)";
+                            get = getcharwoent();
+                            while(get != 13)
+                                get = getcharwoent();
+                            econio_clrscr();
+                        }
+                        else {
+                            bool vane = false;
+                            for (int i = 0; i < elemszam[1]; i++)
+                                if (erzekelok[i].geterztip().getnev() == tempt.getnev())
+                                    vane = true;
+                            if (vane) {
+                                econio_clrscr();
+                                std::cout << "Ez a típus használatban van! Csak nem használtat lehet törölni.\n(folytatáshoz nyomj entert)";
+                                get = getcharwoent();
+                                while(get != 13)
+                                    get = getcharwoent();
+                                econio_clrscr();
+                            }
+                            else {
+                                elemszam[2]--;
+                                ErzTipus* temp = new ErzTipus[elemszam[2]];
+                                int mlen = 0;
+                                for (int i = 0; i < elemszam[2] + 1; i++) {
+                                    if (i != idx) {
+                                        temp[mlen] = tipusok[i];
+                                        mlen++;
+                                    }
+                                }
+                                delete[] tipusok;
+                                tipusok = temp;
+                                econio_clrscr();
+                                std::cout << "Sikeres törlés.\n(folytatáshoz nyomj entert)";
+                                get = getcharwoent();
+                                while(get != 13)
+                                    get = getcharwoent();
+                                econio_clrscr();
+                            }
+                        }
                     }
                 }
 
@@ -951,13 +1235,46 @@ int main() {
             else {
 
                 if (get == 13 && current == 2) {
-                    int vane = -1;
-                    for (int i = 0; i < elemszam[4]; i++)
-                        if (kodolvasok[i].getnev() == tempo.getnev())
-                            vane = i;
-                    if (vane != -1) {
-                        if (tempo.getnev() == alapnev){
-                            kodolvasok[vane] = tempo;
+                    if (tempo.getnev() == "") { //Nem menthet név nélkül
+                        econio_clrscr();
+                            std::cout << "A név nem lehet üres!\n(folytatáshoz nyomj entert)";
+                            get = getcharwoent();
+                            while(get != 13)
+                            get = getcharwoent();
+                        econio_clrscr();
+                    }
+                    else {
+                        int vane = -1;
+                        for (int i = 0; i < elemszam[4]; i++)
+                            if (kodolvasok[i].getnev() == tempo.getnev())
+                                vane = i;
+                        if (vane != -1) {
+                            if (tempo.getnev() == alapnev){
+                                kodolvasok[vane] = tempo;
+                                econio_clrscr();
+                                    std::cout << "Mentés kész\n(folytatáshoz nyomj entert)";
+                                    get = getcharwoent();
+                                    while(get != 13)
+                                    get = getcharwoent();
+                                econio_clrscr();
+                            }
+                            else {
+                                econio_clrscr();
+                                    std::cout << "Már van ilyen nevü olvasó!\n(folytatáshoz nyomj entert)";
+                                    get = getcharwoent();
+                                    while(get != 13)
+                                    get = getcharwoent();
+                                econio_clrscr();
+                            }
+                        }
+                        else {
+                            elemszam[4]++;
+                            Kodolvaso *uj = new Kodolvaso[elemszam[4]];
+                            for (size_t i = 0; (int)i < elemszam[4] - 1; i++)
+                                uj[i] = kodolvasok[i];
+                            uj[elemszam[4] - 1] = tempo;
+                            delete[] kodolvasok;
+                            kodolvasok = uj;
                             econio_clrscr();
                                 std::cout << "Mentés kész\n(folytatáshoz nyomj entert)";
                                 get = getcharwoent();
@@ -965,29 +1282,6 @@ int main() {
                                 get = getcharwoent();
                             econio_clrscr();
                         }
-                        else {
-                            econio_clrscr();
-                                std::cout << "Már van ilyen nevü olvasó!\n(folytatáshoz nyomj entert)";
-                                get = getcharwoent();
-                                while(get != 13)
-                                get = getcharwoent();
-                            econio_clrscr();
-                        }
-                    }
-                    else {
-                        elemszam[4]++;
-                        Kodolvaso *uj = new Kodolvaso[elemszam[4]];
-                        for (size_t i = 0; (int)i < elemszam[4] - 1; i++)
-                            uj[i] = kodolvasok[i];
-                        uj[elemszam[4] - 1] = tempo;
-                        delete[] kodolvasok;
-                        kodolvasok = uj;
-                        econio_clrscr();
-                            std::cout << "Mentés kész\n(folytatáshoz nyomj entert)";
-                            get = getcharwoent();
-                            while(get != 13)
-                            get = getcharwoent();
-                        econio_clrscr();
                     }
                 }
 
