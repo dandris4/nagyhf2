@@ -22,6 +22,16 @@
         felso = erbe;
     }
 
+    ErzTipus ErzTipus::operator=(const ErzTipus& rhs_t) {
+        if (this != &rhs_t) {
+            nev = rhs_t.nev;
+            alapert = rhs_t.alapert;
+            also = rhs_t.also;
+            felso = rhs_t.felso;
+        }
+        return *this;
+    }
+
     String ErzTipus::getnev() const {
         return nev;
     }

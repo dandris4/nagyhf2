@@ -1,21 +1,53 @@
 #include <string.h>
+#include <math.h>
 
 #include "String.h"
 #include "memtrace.h"
 
 
+size_t String::size() const {
+    return len;
+}
 
-String::String(char ch) {
+String::String(const char ch) {
     len = 1;
     pData = new char[len+1];
     pData[0] = ch;
     pData[1] = '\0';
 }
 
+String::String(int be) {
+    if (be == 0) {
+        len = 1;
+        pData = new char[len+1];
+        pData[0] = '0';
+        pData[1] = '\0';
+    }
+    else
+    {
+        bool m = be < 0;
+        if (m)
+            be = - be;
+        int i = be, hossz = 0;
+        for (; i >= 10; i = i / 10)
+            hossz++;
+        String tmp("");
+        if (m)
+            tmp += '-';
+        for (;hossz >= 0; hossz--) {
+            tmp += '0' + be / (int)pow(10, hossz);
+            be = be % (int)pow(10, hossz);
+        }
+        len = tmp.len;
+        pData = new char[len + 1];
+        strcpy(pData,tmp.pData);
+    }
+
+}
 
 String::String(const char *p) {
     len = strlen(p);
-    pData = new char[len+1];
+    pData = new char[len + 1];
     strcpy(pData, p);
 }
 
@@ -46,22 +78,50 @@ String& String::operator+=(const char rhs_c) {
     return *this;
 }
 
-String String::operator--(int i) {
-    String temp(*this);
-    char* ptemp = new char[len];
-    len--;
-    for (size_t i = 0; i < len; i++)
-        ptemp[i] = pData[i];
-    ptemp[len] = '\0';
+String& String::operator+=(const String rhs_s) {
+    len += rhs_s.len;
+    char *temp = new char[len + 1];
+    strcpy(temp, pData);
+    strcpy(&temp[len - rhs_s.len], rhs_s.pData);
     delete[] pData;
-    pData = ptemp;
-    return temp;
+    pData = temp;
+    return *this;
 }
 
-    bool String::operator!=(const char* be) {
+String String::operator--(int i) {
+    if (len != 0) {
+        String temp(*this);
+        char* ptemp = new char[len];
+        len--;
+        for (size_t i = 0; i < len; i++)
+            ptemp[i] = pData[i];
+        ptemp[len] = '\0';
+        delete[] pData;
+        pData = ptemp;
+        return temp;
+    }
+    else
+        return *this;
+}
+
+    bool String::operator!=(const char* be) const{
         return strcmp(pData, be);
     }
 
-    bool String::operator==(const char* be) {
+    bool String::operator==(const char* be) const{
         return !strcmp(pData, be);
     }
+
+    bool String::operator!=(const String& be) const{
+        return strcmp(pData, be.pData);
+    }
+
+    bool String::operator==(const String& be) const{
+        return !strcmp(pData, be.pData);
+    }
+
+    std::ostream& operator<<(std::ostream& os, String str) {
+        os << str.c_str();
+        return os;
+    }
+

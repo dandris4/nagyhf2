@@ -20,7 +20,10 @@ public:
 
     // Konstruktor egy char karakterbõl
     // @param ch - karakter
-    String(char ch);
+    String(const char ch);
+
+    //intböl sztring
+    String(int be);
 
     // Konstruktor \0-al lezárt
     // p: pointer
@@ -33,21 +36,32 @@ public:
     // Ugyanaz, mint a másoló
     String& operator=(const String& rhs_s);
 
-    //String végére karaktert fûz
+    //String végére karaktert füz
     String& operator+=(const char rhs_c);
+
+    //String végére Stringet füz
+    String& operator+=(const String rhs_s);
 
     //String utolsó elemét kitörli
     String operator--(int i);
 
     //Összehasonlítás
-    bool operator!=(const char* be);
+    bool operator!=(const char* be) const;
 
     //Összehasonlítás
-    bool operator==(const char* be);
+    bool operator==(const char* be) const;
+
+    //Összehasonlítás
+    bool operator!=(const String& be) const;
+
+    //Összehasonlítás
+    bool operator==(const String& be) const;
 
     // Destruktor
     virtual ~String() { delete[] pData; }
 
 };
+
+std::ostream& operator<<(std::ostream& os, String str);
 
 #endif

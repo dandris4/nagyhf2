@@ -34,5 +34,10 @@
         return jokod;
     }
 
+    Kodolvaso* Kodolvaso::clone() const {
+        Kodolvaso *uj = new Kodolvaso(nev, ertek);
+        return uj;
+    }
+
     Kodolvaso::~Kodolvaso() {}
 

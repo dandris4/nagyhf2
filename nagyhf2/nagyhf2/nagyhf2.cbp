@@ -40,9 +40,11 @@
 		<Unit filename="Eszkoz.h" />
 		<Unit filename="Kodolvaso.cpp" />
 		<Unit filename="Kodolvaso.h" />
+		<Unit filename="Logika.cpp" />
 		<Unit filename="Logika.h" />
 		<Unit filename="String.cpp" />
 		<Unit filename="String.h" />
+		<Unit filename="Szirena.cpp" />
 		<Unit filename="Szirena.h" />
 		<Unit filename="Tipus.cpp" />
 		<Unit filename="Tipus.h" />

@@ -11,7 +11,7 @@ struct ErzTipus {
     int alapert, also, felso;
 public:
     //ctor
-    ErzTipus(const String &sbe, const int alpbe, const int felsbe, const int alsbe);
+    ErzTipus(const String &sbe = "", const int alpbe = 0, const int felsbe = 0, const int alsbe = 0);
 
     //név beállítása
     //nevbe: új név
@@ -28,6 +28,9 @@ public:
     //felsõ határérték beállítása
     //erbe: új érték
     void setfelso(const int erbe);
+
+    //=
+    ErzTipus operator=(const ErzTipus& rhs_t) ;
 
     //név lekérése
     //return név

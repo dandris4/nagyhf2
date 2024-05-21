@@ -6,6 +6,10 @@
         ertek = tipus.getalap();
     }
 
+    Erzekelo::Erzekelo(const String &nev) :Eszkoz(nev, Erzek), tipus(){
+        ertek = tipus.getalap();
+    }
+
     void Erzekelo::setert(const int ujert) {
         ertek = ujert;
     }
@@ -29,8 +33,7 @@
 
     Erzekelo* Erzekelo::clone() const {
         Erzekelo* uj = new Erzekelo(getnev(), tipus);
-        //delete uj;
-
+        uj->ertek = ertek;
         return uj;
     }
 

@@ -18,6 +18,9 @@ public:
     //ctor
     Eszkoz(const String &be, const eszkoztip tipbe);
 
+    //mctor
+    Eszkoz(const Eszkoz& regi);
+
     //név beállítása
     virtual void setnev(const String &nevbe);
 

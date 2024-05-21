@@ -14,7 +14,7 @@ public:
     //ctor
     //nevbe: az olvaso neve
     //erbe: az olvaso erteke
-    Kodolvaso(const String &nevbe, const int erbe = 0);
+    Kodolvaso(const String &nevbe = "", const int erbe = 0);
 
     //név beállítása
     //nevbe: új név
@@ -41,6 +41,9 @@ public:
 
     //Visszaadja, hogy beütöttek-e jó kódot
     bool igaze();
+
+    //Klónoz
+    Kodolvaso* clone() const;
 
     //dtor
     virtual ~Kodolvaso();

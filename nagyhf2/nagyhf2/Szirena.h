@@ -13,18 +13,18 @@ enum szirall {
 };
 
 class Szirena {
-    std::string nev;
+    String nev;
     Logika* krit;
     int visszakezd,idozites;
     Kodolvaso* olvaso;
 public:
     //ctor
     //be: sziréna neve
-    Szirena(std::string &be);
+    Szirena(const String &be = "", Logika* krbe = 0, const int idoz = 0, Kodolvaso* olvbe = 0);
 
     //Név beállítása
     //nevbe: új név
-    void setnev(std::string &nevbe);
+    void setnev(const String &nevbe);
 
     //logka beállítása
     //uj: új logika, dinamikusan foglalt
@@ -44,7 +44,7 @@ public:
 
     //Visszaadja a jelenlegi nevet
     //return: nev
-    std::string& getnev() const;
+    String getnev() const;
 
     //Visszaadja a jelenlegi időzítést
     //return: idozites
@@ -56,7 +56,7 @@ public:
 
     //állapotot ad vissza, ez kezeli az időzítést is
     //return alap, ha nem riaszt, szamlal, ha bekapcsolt, de még nem szól, riaszt, ha letelt az idõzítés, és riaszt
-    szirall getall() const;
+    szirall getall(const int ido);
 
     //dtor
     virtual ~Szirena();

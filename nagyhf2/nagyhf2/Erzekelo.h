@@ -15,6 +15,9 @@ public:
     //ctor
     Erzekelo(const String &nev, const ErzTipus tipbe);
 
+    //ctor
+    Erzekelo(const String &nev = "");
+
     //mctor
     Erzekelo(Erzekelo& be);
 

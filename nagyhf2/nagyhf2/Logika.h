@@ -16,31 +16,55 @@ class Logika :public Eszkoz {
     int visszakezd,idozites;
 public:
     //ctor
-    Logika(const LogikaTipus be = idozito);
+    Logika(const String& nevbe = "", const LogikaTipus be = es);
 
-    //Listához fûzés
+    //ctor
+    Logika(const String& nevbe, const LogikaTipus be, Eszkoz* eszbe);
+
+    //mktor
+    Logika(const Logika& logbe);
+
+    //méret lekérés
+    size_t size() const;
+
+    //Listához füzés
     //elem: új elem
     void add (Eszkoz* elem);
 
+    //elem csere
+    void rep (Eszkoz* elem, size_t idx);
+
     //A lista egyik elemének lekérése
-    //index: lekérendõ elem indexe
+    //index: lekérendö elem indexe
     Eszkoz* getelem (size_t index);
 
     //A lista egyik elemének kitörlése
-    //index: törlendõ elem indexe
+    //index: törlendö elem indexe
     void del (const size_t index);
 
-    //Idõzítõ beállítása
-    //be: új idõ
+    //Idözítö beállítása
+    //be: új idö
     void setidoz (const int be);
 
-    //Idõzítõ lekérdezése
-    //return: idõzítõ mérete
-    int getidoz ();
+    //típus beállítása
+    void setltip (const LogikaTipus be);
 
-    //Visszaadja, hogy igaz-e a logika, illetve az idõzítést kezeli
+    //típus lekérdezése
+    LogikaTipus getltip() const;
+
+    //Idözítö lekérdezése
+    //return: idözítö mérete
+    int getidoz () const;
+
+    //Visszaadja, hogy igaz-e a logika, illetve az idözítést kezeli
     //return: igaz, ha a logika teljesül
     bool igaze (int ido);
+
+    //reset
+    void reset();
+
+    //klón
+    Logika* clone() const;
 
     //dtor
     virtual ~Logika();
