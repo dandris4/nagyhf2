@@ -20,7 +20,10 @@ class Szirena {
 public:
     //ctor
     //be: sziréna neve
-    Szirena(const String &be = "", Logika* krbe = 0, const int idoz = 0, Kodolvaso* olvbe = 0);
+    Szirena(const String &be, Logika* krbe, const int idoz, Kodolvaso* olvbe);
+
+    //ctor paraméter nélkül
+    Szirena();
 
     //Név beállítása
     //nevbe: új név

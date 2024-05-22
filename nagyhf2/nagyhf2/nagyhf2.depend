@@ -174,7 +174,7 @@
 	"String.h"
 	"memtrace.h"
 
-1716288210 c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\string.h
+1716398121 c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\string.h
 	<iostream>
 
 1712068341 c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\memtrace.h
@@ -217,7 +217,7 @@
 	"String.h"
 	"memtrace.h"
 
-1716312759 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\main.cpp
+1716409854 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\main.cpp
 	<iostream>
 	<time.h>
 	"c-econio/econio.h"
@@ -233,13 +233,13 @@
 	"tester.h"
 	"memtrace.h"
 
-1716289911 c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\szirena.h
+1716397190 c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\szirena.h
 	"Logika.h"
 	"Kodolvaso.h"
 	<iostream>
 	"memtrace.h"
 
-1716289684 c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\logika.h
+1716398121 c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\logika.h
 	"Eszkoz.h"
 	"memtrace.h"
 
@@ -260,13 +260,13 @@
 	<ctype.h>
 	"memtrace.h"
 
-1716288289 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\string.cpp
+1716398121 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\string.cpp
 	<string.h>
 	<math.h>
 	"String.h"
 	"memtrace.h"
 
-1716111296 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\tester.cpp
+1716397407 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\tester.cpp
 	<string.h>
 	"Erzekelo.h"
 	"Eszkoz.h"
@@ -281,9 +281,10 @@
 	"Tipus.h"
 	"memtrace.h"
 
-1716289675 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\logika.cpp
+1716408997 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\logika.cpp
 	"Logika.h"
+	"Erzekelo.h"
 
-1716109269 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\szirena.cpp
+1716397394 source:c:\bme\prog2\hf2\nagyhf2\nagyhf2\nagyhf2\szirena.cpp
 	"Szirena.h"
 

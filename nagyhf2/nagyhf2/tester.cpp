@@ -64,7 +64,7 @@ bool test_all() {
 
 bool test_string() {
 
-    std::cout << "Kodolvaso osztály tesztelése:\n";
+    std::cout << "String osztály tesztelése:\n";
 
     String asd("asd");
 
@@ -132,6 +132,13 @@ bool test_kodolv(){
         return false;
     }
 
+    Kodolvaso alap;
+
+    if (alap.getnev() != "" || alap.getert() != 0 || alap.igaze() != false) {
+        std::cout << "Hiba történt: Paraméter nélküli konstruktor hiba!\n\n";
+        return false;
+    }
+
     kod1.setnev("asd2");
     kod1.setert(123);
 
@@ -185,6 +192,13 @@ bool test_erztipus() {
         return false;
     }
 
+    ErzTipus alap;
+
+    if (alap.getnev() != "" || alap.getalap() != 0 || alap.getalso() != 0 || alap.getfelso()!= 0) {
+        std::cout << "Hiba történt: Paraméter nélküli konstruktor hiba!\n\n";
+        return false;
+    }
+
     erz.setnev("asd2");
     erz.setalap(12);
     erz.setalso(10);
@@ -207,8 +221,15 @@ bool test_erzekelo() {
 
     Erzekelo esz("asd", temp);
 
-    if (esz.getnev() != "asd" || /*esz.gettip() != Erzek ||*/ esz.getert() != 15 || esz.geterztip().getnev() != "retek") {
+    if (esz.getnev() != "asd" || esz.gettip() != Erzek || esz.getert() != 15 || esz.geterztip().getnev() != "retek") {
         std::cout << "Hiba történt: Construktor vagy getter hiba!\n\n";
+        return false;
+    }
+
+    Erzekelo alap;
+
+    if (alap.getnev() != "" || alap.gettip() != Erzek || alap.getert() != 0 || alap.geterztip().getnev() != "") {
+        std::cout << "Hiba történt: Paraméter nélküli konstruktor hiba!\n\n";
         return false;
     }
 
@@ -269,6 +290,13 @@ bool test_logika() {
 
     if (logik.getnev() != "Logika" || logik.getidoz() != 0 || logik.gettip() != Logik || logik.size() != 1 || logik.getelem(0)->getnev() != "nappali") {
         std::cout << "Hiba történt: Construktor vagy getter hiba!\n\n";
+        return false;
+    }
+
+    Logika alap;
+
+    if (alap.getnev() != "" || alap.getidoz() != 0 || alap.gettip() != Logik || alap.size() != 1 || alap.getelem(0)->getnev() != "" || alap.getltip() != es) {
+        std::cout << "Hiba történt: Paraméter nélküli konstruktor hiba!\n\n";
         return false;
     }
 
@@ -411,6 +439,13 @@ bool test_szirena() {
 
     if (jelzo.getnev() != "Riaszt" || jelzo.getidoz() != 100 || jelzo.getlogika()->getnev() != "Logika" || jelzo.getolvas()->getnev() != "Billenty") {
         std::cout << "Hiba történt: Konstruktor vagy getter hiba!\n\n";
+        return false;
+    }
+
+    Szirena alap0;
+
+    if (alap0.getnev() != "" || alap0.getidoz() != 0 || alap0.getlogika() != 0 || alap0.getolvas() != 0) {
+        std::cout << "Hiba történt: Paraméter nélküli konstruktor hiba!\n\n";
         return false;
     }
 

@@ -66,6 +66,9 @@ public:
     //klón
     Logika* clone() const;
 
+    // Értékadó operátor.
+    Logika& operator=(const Logika& rhs_l);
+
     //dtor
     virtual ~Logika();
 };
