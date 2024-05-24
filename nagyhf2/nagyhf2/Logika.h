@@ -9,6 +9,8 @@ enum LogikaTipus {
     es,vagy,nem,idozito
 };
 
+std::istream& operator>>(std::istream& is, LogikaTipus& rhs_l);
+
 class Logika :public Eszkoz {
     LogikaTipus tip;
     size_t len;

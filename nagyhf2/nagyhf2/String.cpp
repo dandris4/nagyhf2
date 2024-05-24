@@ -125,3 +125,10 @@ String String::operator--(int i) {
         return os;
     }
 
+    std::istream& operator>>(std::istream& os, String& str) {
+        std::string a;
+        os >> a;
+        str = String(&a[0]);
+        return os;
+    }
+

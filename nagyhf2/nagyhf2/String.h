@@ -64,4 +64,6 @@ public:
 
 std::ostream& operator<<(std::ostream& os, String str);
 
+std::istream& operator>>(std::istream& os, String& str);
+
 #endif

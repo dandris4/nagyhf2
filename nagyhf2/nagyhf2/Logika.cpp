@@ -1,6 +1,26 @@
 #include "Logika.h"
 #include "Erzekelo.h"
 
+    std::istream& operator>>(std::istream& is, LogikaTipus& rhs_l) {
+        int i;
+        is >> i;
+        switch (i) {
+            case 0:
+                rhs_l = es;
+            break;
+            case 1:
+                rhs_l = vagy;
+            break;
+            case 2:
+                rhs_l = nem;
+            break;
+            case 3:
+                rhs_l = idozito;
+            break;
+        }
+        return is;
+    }
+
     Logika::Logika(const String& nevbe, const LogikaTipus be) :Eszkoz(nevbe, Logik) {
         tip = be;
         len = 1;

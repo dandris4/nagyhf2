@@ -116,6 +116,7 @@ bool test_string() {
         return false;
     }
 
+
     std::cout << "String osztály müködik.\n\n";
     return true;
 

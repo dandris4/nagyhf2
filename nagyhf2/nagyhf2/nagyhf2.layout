@@ -2,27 +2,31 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+	<File name="Erzekelo.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="151" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="30969" topLine="315" />
+			<Cursor1 position="2486" topLine="55" />
 		</Cursor>
 		<Folding>
-			<Collapse line="22" />
-			<Collapse line="76" />
-			<Collapse line="84" />
-			<Collapse line="102" />
-			<Collapse line="120" />
-			<Collapse line="138" />
-			<Collapse line="156" />
-			<Collapse line="174" />
-			<Collapse line="226" />
-			<Collapse line="520" />
-			<Collapse line="560" />
-			<Collapse line="598" />
-			<Collapse line="1047" />
-			<Collapse line="1248" />
-			<Collapse line="1564" />
-			<Collapse line="1868" />
+			<Collapse line="99" />
+			<Collapse line="107" />
+			<Collapse line="125" />
+			<Collapse line="143" />
+			<Collapse line="161" />
+			<Collapse line="179" />
+			<Collapse line="197" />
+			<Collapse line="250" />
+			<Collapse line="544" />
+			<Collapse line="584" />
+			<Collapse line="660" />
+			<Collapse line="1071" />
+			<Collapse line="1272" />
+			<Collapse line="1588" />
+			<Collapse line="1892" />
 		</Folding>
 	</File>
 	<File name="Szirena.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -30,49 +34,9 @@
 			<Cursor1 position="483" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Tipus.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Logika.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="123" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Erzekelo.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="151" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Tipus.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="634" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Kodolvaso.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="318" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Eszkoz.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="185" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Erzekelo.cpp" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="921" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="String.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1377" topLine="29" />
-		</Cursor>
-	</File>
-	<File name="memtrace.cpp" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="8310" topLine="273" />
-		</Cursor>
-	</File>
-	<File name="Szirena.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="269" topLine="0" />
+			<Cursor1 position="4530" topLine="140" />
 		</Cursor>
 	</File>
 	<File name="Eszkoz.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -80,24 +44,29 @@
 			<Cursor1 position="234" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Logika.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Szirena.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1541" topLine="0" />
+			<Cursor1 position="269" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Logika.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="String.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4530" topLine="140" />
-		</Cursor>
-	</File>
-	<File name="Kodolvaso.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="703" topLine="0" />
+			<Cursor1 position="2760" topLine="107" />
 		</Cursor>
 	</File>
 	<File name="tester.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="373" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Tipus.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="634" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Eszkoz.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="185" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="tester.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -113,14 +82,44 @@
 			<Collapse line="282" />
 		</Folding>
 	</File>
+	<File name="Erzekelo.cpp" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="921" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="memtrace.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="333" topLine="9" />
 		</Cursor>
 	</File>
+	<File name="Logika.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1541" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Tipus.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="123" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Kodolvaso.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="703" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="memtrace.cpp" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8310" topLine="273" />
+		</Cursor>
+	</File>
 	<File name="String.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="715" topLine="22" />
+			<Cursor1 position="1410" topLine="41" />
+		</Cursor>
+	</File>
+	<File name="Kodolvaso.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="318" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

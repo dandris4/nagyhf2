@@ -36,7 +36,7 @@ bool mentes(String &filenev, Logika* logikak, Erzekelo* erzekelok, ErzTipus* tip
         f << erzekelok[i].getnev() << ' ' << erzekelok[i].geterztip().getnev() << "\n";
     }
     for (int i = 0; i < elemszam[0]; i++) { //Logikák beírása
-        f << logikak[i].getnev() << ' ' << logikak[i].gettip() << ' ' << logikak[i].getidoz() << ' ' << logikak[i].size() << "\n";
+        f << logikak[i].getnev() << ' ' << logikak[i].getltip() << ' ' << logikak[i].getidoz() << ' ' << logikak[i].size() << "\n";
         for (size_t a = 0; a < logikak[i].size(); a++)
             f << logikak[i].getelem(a)->gettip() << ' ' << logikak[i].getelem(a)->getnev() << "\n";
     }
@@ -51,7 +51,248 @@ bool mentes(String &filenev, Logika* logikak, Erzekelo* erzekelok, ErzTipus* tip
     return true;
 }
 
-bool betoltes(String &filenev, Logika* logikak, Erzekelo* erzekelok, ErzTipus* tipusok, Kodolvaso* kodolvasok) {return true;}
+bool betoltes(String &filenev, Logika** logikak, Erzekelo** erzekelok, ErzTipus** tipusok, Szirena** szirenak, Kodolvaso** kodolvasok, int *elemszam) {
+
+
+    std::ifstream f;
+    f.open(filenev.c_str());
+    if (!f)
+        return false;
+
+    int telemszam[5] = {0};
+
+    for (size_t i = 0; i < 5; i++) {
+        if(!(f >> telemszam[i]))
+            return false;
+    }
+
+    Logika* templ;
+    Erzekelo* tempe;
+    ErzTipus* tempt;
+    Szirena* temps;
+    Kodolvaso* tempo;
+
+
+    if (telemszam[0] != 0)
+        templ = new Logika[telemszam[0]];
+    else
+        templ = nullptr;
+
+    if (telemszam[1] != 0)
+        tempe = new Erzekelo[telemszam[1]];
+    else
+        tempe = nullptr;
+
+    if (telemszam[2] != 0)
+        tempt = new ErzTipus[telemszam[2]];
+    else
+        tempt = nullptr;
+
+    if (telemszam[3] != 0)
+        temps = new Szirena[telemszam[3]];
+    else
+        temps = nullptr;
+
+    if (telemszam[4] != 0)
+        tempo = new Kodolvaso[telemszam[4]];
+    else
+        tempo = nullptr;
+
+    for (int i = 0; i < telemszam[2]; i++) { //Érzékelö típusok olvasása
+        ErzTipus olv;
+        String nev;
+        int alap, also, felso;
+        if (!(f >> nev >> alap >> also >> felso)) {
+            delete[] templ;
+            delete[] tempe;
+            delete[] tempt;
+            delete[] temps;
+            delete[] tempo;
+            return false;
+        }
+        olv.setnev(nev);
+        olv.setalap(alap);
+        olv.setalso(also);
+        olv.setfelso(felso);
+        tempt[0] = olv;
+    }
+
+    for (int i = 0; i < telemszam[1]; i++) { //Érzékelök olvasása
+        Erzekelo olv;
+        String nev, tip;
+        if (!(f >> nev >> tip))  {
+            delete[] templ;
+            delete[] tempe;
+            delete[] tempt;
+            delete[] temps;
+            delete[] tempo;
+            return false;
+        }
+
+        olv.setnev(nev);
+
+        for (int a = 0; a < telemszam[2]; a++)
+            if (tempt[a].getnev() == tip)
+                olv.seterztip(tempt[a]);
+        if (olv.geterztip().getnev() == "") {
+            delete[] templ;
+            delete[] tempe;
+            delete[] tempt;
+            delete[] temps;
+            delete[] tempo;
+            return false;
+        }
+
+        tempe[i] = olv;
+    }
+
+    for (int i = 0; i < telemszam[0]; i++) { //Logikák olvasása
+        Logika olv;
+        String nev;
+        LogikaTipus tip;
+        int idoz,len;
+
+        if (!(f >> nev >> tip >> idoz >> len))  {
+            delete[] templ;
+            delete[] tempe;
+            delete[] tempt;
+            delete[] temps;
+            delete[] tempo;
+            return false;
+        }
+
+        olv.setnev(nev);
+        olv.setltip(tip);
+        olv.setidoz(idoz);
+
+        eszkoztip etip;
+
+        for (int a = 0; a < len; a++) { //Elemeinek olvasása
+            if (!(f >> etip >> nev))  {
+                delete[] templ;
+                delete[] tempe;
+                delete[] tempt;
+                delete[] temps;
+                delete[] tempo;
+                return false;
+            }
+            if (etip == Logik)  {
+                for (int s = 0; s < i; s++)
+                    if (templ[s].getnev() == tip)
+                        olv.add(templ[s].clone());
+                if (olv.size() < (size_t)a) {
+                    delete[] templ;
+                    delete[] tempe;
+                    delete[] tempt;
+                    delete[] temps;
+                    delete[] tempo;
+                    return false;
+                }
+            }
+            else {
+                for (int s = 0; s < elemszam[1]; s++)
+                    if (tempe[s].getnev() == tip)
+                        olv.add(tempe[s].clone());
+                if (olv.size() < (size_t)a) {
+                    delete[] templ;
+                    delete[] tempe;
+                    delete[] tempt;
+                    delete[] temps;
+                    delete[] tempo;
+                    return false;
+                }
+            }
+        }
+
+        templ[i] = olv;
+
+    }
+
+    for (int i = 0; i < telemszam[4]; i++) { //Kódolvasók olvasása
+        Kodolvaso olv;
+        String nev;
+        int ertek;
+        if (!(f >> nev >> ertek)) {
+            delete[] templ;
+            delete[] tempe;
+            delete[] tempt;
+            delete[] temps;
+            delete[] tempo;
+            return false;
+        }
+        olv.setnev(nev);
+        olv.setert(ertek);
+
+        tempo[i] = olv;
+    }
+
+    for (int i = 0; i < telemszam[3]; i++) { //Szirénák olvasása
+        Szirena olv;
+        String nev, log, kod;
+        int idoz;
+
+        if (!(f >> nev >> log >> idoz >> kod))  {
+            delete[] templ;
+            delete[] tempe;
+            delete[] tempt;
+            delete[] temps;
+            delete[] tempo;
+            return false;
+        }
+
+        olv.setnev(nev);
+        olv.setidoz(idoz);
+
+        for (int a = 0; a < telemszam[0]; a++)
+            if (templ[a].getnev() == log)
+                olv.setlogika(&templ[a]);
+        if (olv.getlogika()->getnev() == "") {
+            delete[] templ;
+            delete[] tempe;
+            delete[] tempt;
+            delete[] temps;
+            delete[] tempo;
+            return false;
+        }
+
+        for (int a = 0; a < telemszam[4]; a++)
+            if (tempo[a].getnev() == kod)
+                olv.setolvas(&tempo[a]);
+        if (olv.getolvas()->getnev() == "") {
+            delete[] templ;
+            delete[] tempe;
+            delete[] tempt;
+            delete[] temps;
+            delete[] tempo;
+            return false;
+        }
+
+        temps[i] = olv;
+    }
+
+
+    if (*logikak != nullptr)
+        delete[] *logikak;
+    if (*erzekelok != nullptr)
+        delete[] *erzekelok;
+    if (*tipusok != nullptr)
+        delete[] *tipusok;
+    if (*szirenak != nullptr)
+        delete[] *szirenak;
+    if (*kodolvasok != nullptr)
+        delete[] *kodolvasok;
+
+    *logikak = templ;
+    *erzekelok = tempe;
+    *tipusok = tempt;
+    *szirenak = temps;
+    *kodolvasok = tempo;
+
+    for (int i = 0; i < 5; i++)
+        elemszam[i] = telemszam[i];
+
+    return true;
+}
 
 int getcharwoent () {
 
@@ -224,6 +465,7 @@ int main() {
 
     econio_clrscr();
     while (allapot > -1) {
+
         if (allapot == 0) { //fömenü
             econio_gotoxy(0,0);
             std::cout << "Menü\n\n";
@@ -606,7 +848,7 @@ int main() {
                 filenev += get;
             switch (get) {
                 case 13 : {//Betöltés filenévvel
-                    if (betoltes(filenev, logikak, erzekelok, tipusok, kodolvasok))
+                    if (betoltes(filenev, &logikak, &erzekelok, &tipusok, &szirenak, &kodolvasok, elemszam))
                         std::cout << "Sikeres betöltés!\n";
                     else
                         std::cout << "Betöltés sikertelen!\n";

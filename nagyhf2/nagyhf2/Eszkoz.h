@@ -11,6 +11,8 @@ enum eszkoztip {
     Erzek, Logik
 };
 
+std::istream& operator>>(std::istream& is, eszkoztip& rhs_l);
+
 class Eszkoz {
     String nev;
     eszkoztip esztip;
